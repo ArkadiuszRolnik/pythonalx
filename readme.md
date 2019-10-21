@@ -1,2 +1,2 @@
 # Nasze testowe repo
-## Test z zajęć 21.10
+## Test z zajęć 21.10 - dodatek
