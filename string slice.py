@@ -14,3 +14,18 @@ print(s[::3]) #cały string co 3ci znak
 #reverse w pythonie
 
 print(s[::-1])
+
+print("Hello"+"World!")
+
+a="Hello"
+b="ALX"
+
+print(f"{a} {b}                   {1+2}")
+print("{} {}    {}".format(a,b,5+7))
+
+x = input("Podaj wartość x") #input zwraca zawsze napis, trzeba zmienić na int
+print(x, type(x))
+
+x = int(input("Podaj wartość x"))
+print(x, type(x))
+
