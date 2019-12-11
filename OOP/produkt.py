@@ -30,11 +30,7 @@ class Product:
         print(f"{self.name} ({self.id}), cena: {self.price}")
 
 
-pr = Product("woda", 10.99)
-pr2 = Product("wóda", 10.99)
 
-
-pr.show()
 
 def test_product():
     pr = Product("woda", 10.99)
