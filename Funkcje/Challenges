@@ -1,0 +1,39 @@
+def mid(napis):
+    dlugosc = len(napis)
+    if dlugosc % 2 == 0:
+        return ""
+    else: 
+     
+        return napis[int(dlugosc/2)]
+       
+mid("abc")
+
+def capital_indexes(napis):
+    wynik = []
+    for i, litera in enumerate(napis):
+        if litera.isupper():
+            wynik.append(i)
+    return wynik
+        
+capital_indexes("HeLlO")
+statuses = {
+    "Alice": "online",
+    "Bob": "offline",
+    "Eve": "online",
+}
+def online_count(dict):
+    licznik = 0
+    for i in dict:
+        if dict[i] == "online":
+            licznik = licznik + 1
+    return licznik
+online_count(statuses)
+
+from random import randint
+def random_number():
+
+    return randint(1,101)
+    
+random_number()
+
+
