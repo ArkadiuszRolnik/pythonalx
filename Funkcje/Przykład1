@@ -1,0 +1,274 @@
+# 1 Capital indexes
+def capital_indexes(napis):
+    res = []
+    for counter, value in enumerate(napis):
+        if value.isupper():
+            res.append(counter)
+    return res
+        
+capital_indexes("HeLlO")
+Out[6]:
+[0, 2, 4]
+In [17]:
+# 2 Middle letter
+def mid(napis):
+    dlug = len(napis)
+    if dlug % 2 == 0:
+        return ""
+    else:
+        nr = int((dlug-1)/2)
+        return napis[nr]
+
+mid("acdef")
+Out[17]:
+'d'
+In [21]:
+# 3 Online status
+statuses = {
+    "Alice": "online",
+    "Bob": "offline",
+    "Eve": "online",
+    "Jarek": "online",
+}
+
+def online_count(mydict):
+    cnt=0
+    for i in mydict:
+        if mydict[i]=="online":
+            cnt+=1
+    return cnt
+        
+online_count(statuses)
+Out[21]:
+3
+In [26]:
+# 4 Randomness
+from random import seed
+from random import randint
+
+def random_number():
+    seed=(5)
+    return randint(1,10)
+
+random_number()
+Out[26]:
+10
+In [30]:
+# 5 only_ints 
+def only_ints(i1, i2):
+    if isinstance(i1, bool) or isinstance(i2, bool):
+        return False
+    elif isinstance(i1, int) and isinstance(i2, int):
+        return True
+    else:
+        return False
+
+[only_ints("a", 6), only_ints(6, 6), only_ints(True, 6)]
+Out[30]:
+[False, True, False]
+In [50]:
+# 6 double_letters
+def double_letters(napis):
+    dlug = len(napis)
+    res = False
+    if dlug < 2:
+        return res
+    else:
+        prior_let=napis[0]
+        for a in range(1, dlug):
+            curr_let = napis[a]
+            if curr_let == prior_let:
+                return True
+            else:
+                prior_let=curr_let       
+    return res         
+                     
+double_letters("off")     
+Out[50]:
+True
+In [68]:
+# 7 add_dots remove_dots
+def add_dots(napis):
+    dlg = len(napis)
+    if dlg < 2:
+        return "."
+    else:
+        n=""
+        for a in range(dlg-1):
+            n += f"{napis[a]}."
+        n += f"{napis[dlg-1]}"
+    return n
+
+
+def remove_dots(napis):
+    return napis.replace(".", "")
+
+
+add_dots("napis")
+Out[68]:
+'n.a.p.i.s'
+In [80]:
+# 8 Counting syllables
+
+def count(napis):
+    if napis == "":
+        return 0
+    else:
+        lst = napis.split("-")
+        return len(lst)
+
+count("--")
+Out[80]:
+3
+In [87]:
+# 9 is_anagram 
+def is_anagram(n1, n2):
+    if isinstance(n1, str) and isinstance(n2, str):
+        pass
+    else:
+        print("Provide 2 strings")
+        
+is_anagram("typhoon", "opython") 
+In [4]:
+# 10 Flatten
+import numpy as np
+
+def flatten(list):
+    a = np.array(list)
+    return np.ndarray.flatten(a)
+
+l = [[1, 2], [3, 4]]
+flatten(l)
+Out[4]:
+array([1, 2, 3, 4])
+In [9]:
+# 11 largest_difference 
+
+def largest_difference (l):
+    mx = max(l)
+    mn = min(l)
+    return mx - mn
+    
+largest_difference([1,2,3,4])
+Out[9]:
+3
+In [11]:
+# 12 div_3 
+def div_3(l):
+    if (not l%3):
+        return True
+    else:
+        return False
+
+div_3(10)
+Out[11]:
+False
+In [34]:
+# 13 get_row_col
+# get_row_col("A3") should return the tuple (2, 0)
+
+def get_row_col(c):
+    lt_l = {"A":1,"B":2,"C":3}
+    k = c[0]
+    w = int(c[1])
+    return (w-1, lt_l[k]-1)
+ 
+get_row_col("A3")
+Out[34]:
+(2, 1)
+In [42]:
+# 14 Palindrome
+def palindrome(napis):
+    if napis[:]==napis[::-1]:
+        return True
+    else:
+        return False
+
+(palindrome("amanaplanacanalpanama"), palindrome("realmadryt"))
+Out[42]:
+(True, False)
+In [43]:
+# 15 up_down(5) should return (4, 6).
+
+def up_down(n):
+    return (n-1, n+1)
+
+up_down(5)
+Out[43]:
+(4, 5, 6)
+In [65]:
+# 16 Consecutive zeros
+# "1001101000110" The biggest number of consecutive zeros is 3.
+
+def consecutive_zeros(b):
+    if len(b) == 0:
+        return 0
+    elif len(b) == 1:
+        if b=='0':
+            return 1
+        else:
+            return 0
+    else:
+        cz_l = [1]
+        cz=1
+        for i in range(1, len(b)):
+            if b[i]==b[i-1] and b[i]=="0":
+                cz+=1
+            else:
+                cz_l.append(cz)
+                cz=1
+        cz_l.append(cz)
+    return max(cz_l)    
+    
+consecutive_zeros("00") 
+Out[65]:
+2
+In [71]:
+# 17 all_equal([1, 1, 1]) should return True.
+
+def all_equal(l):
+    if len(l)==0:
+        return True
+    else:
+        first = l[0]
+        for i in l:
+            if i==first:
+                continue
+            else:
+                return False
+    return True
+
+all_equal([]) 
+        
+        
+Out[71]:
+False
+In [77]:
+# 18 triple_and that takes three parameters and returns True only if they are all True and False otherwise.
+
+def triple_and(a,b,c):
+    if a==True and b==True and c==True:
+        return True
+    else:
+        return False
+
+
+triple_and(True, True, "z")
+Out[77]:
+False
+In [83]:
+# convert
+'''define a function named convert that takes a list of numbers as its only parameter and returns a list of each number converted to a string.
+For example, the call convert([1, 2, 3]) should return ["1", "2", "3"].
+What makes this tricky is that your function body must only contain a single line of code
+'''
+def convert(numbers):
+    return list(map(lambda x: str(x), numbers))
+
+convert([1, 2, 3, 4]) 
+Out[83]:
+['1', '2', '3', '4']
+In [86]:
+list(map(lambda x: x**3, [1, 2, 3, 4]))
+Out[86]:
+[1, 8, 27, 64]
